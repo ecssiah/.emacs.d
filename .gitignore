@@ -48,7 +48,7 @@
 # =========================
 # Projects
 # =========================
-projects
+/projects
 
 # =========================
 # Projectile
@@ -89,11 +89,6 @@ projects
 /auto-save-list/
 /url/
 /network-security.data
-
-# =========================
-# Custom file (optional)
-# =========================
-/custom.el
 
 # =========================
 # OS junk
