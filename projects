@@ -1,0 +1,10 @@
+;;; -*- lisp-data -*-
+(("/Users/ecssiah/Development/jsk/lastditch/")
+ ("/Users/ecssiah/Development/stb/")
+ ("/Users/ecssiah/Development/jsk/voxeltest/")
+ ("/Users/ecssiah/Development/vulkantest/")
+ ("/Users/ecssiah/Development/jsk/opengltest/")
+ ("/Users/ecssiah/Development/ehkaryan/")
+ ("/Users/ecssiah/Development/obbg/")
+ ("/Users/ecssiah/Development/voxelgl/")
+ ("/Users/ecssiah/Development/voxeltest/"))

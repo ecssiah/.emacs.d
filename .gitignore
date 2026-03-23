@@ -1,0 +1,96 @@
+# =========================
+# Package manager (ELPA)
+# =========================
+/elpa/
+/straight/build/
+/straight/repos/
+/straight/versions/
+/quelpa/
+/package.el
+
+# Keep lockfile if you want reproducibility
+!/straight/versions/default.el
+
+# =========================
+# Native compilation
+# =========================
+/eln-cache/
+
+# =========================
+# Auto-save / backup
+# =========================
+*~
+\#*\#
+.\#*
+
+# =========================
+# Recent files, history
+# =========================
+/recentf
+/history
+/savehist
+/bookmarks
+
+# =========================
+# Transient / Magit
+# =========================
+/transient/
+/magit/
+/forge/
+
+# =========================
+# LSP / language servers
+# =========================
+/lsp-session-v1
+/.lsp-session-v1
+/lsp-cache/
+
+# =========================
+# Projectile
+# =========================
+/projectile-bookmarks.eld
+
+# =========================
+# Org mode
+# =========================
+/org-id-locations
+/org-clock-save.el
+
+# =========================
+# Tramp
+# =========================
+/tramp
+
+# =========================
+# Eshell
+# =========================
+/eshell/history
+/eshell/lastdir
+
+# =========================
+# Company / completion
+# =========================
+/company-statistics-cache.el
+
+# =========================
+# Desktop save
+# =========================
+/.desktop
+/.emacs.desktop.lock
+
+# =========================
+# Misc caches
+# =========================
+/auto-save-list/
+/url/
+/network-security.data
+
+# =========================
+# Custom file (optional)
+# =========================
+/custom.el
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
