@@ -1,10 +1,4 @@
 
-;; --- CUSTOMIZATION --- ;;
-
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file 'noerror)
-
-
 ;; --- GENERAL --- ;;
 
 (require 'package)
@@ -25,7 +19,15 @@
 (setq auto-save-default nil)
 (setq create-lockfiles nil)
 
+(setq ring-bell-function 'ignore)
+
 (setq-default truncate-lines t)
+
+
+;; --- CUSTOMIZATION --- ;;
+
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file 'noerror)
 
 
 ;; --- FUNCTIONS --- ;;
@@ -33,11 +35,13 @@
 (defun jsk-no-op ()
   (interactive))
 
+
 ;; -- DIRED-SUBTREE -- ;;
 
 (with-eval-after-load 'dired
   (require 'dired-subtree)
   (define-key dired-mode-map (kbd "i") #'dired-subtree-toggle))
+
 
 ;; --- EGLOT --- ;;
 
@@ -59,17 +63,20 @@
  (lambda ()
    (eglot-inlay-hints-mode -1)))
 
+
 ;; --- ORDERLESS --- ;;
 
 (use-package orderless
   :init
   (setq completion-styles '(orderless basic)))
 
+
 ;; --- VERTICO --- ;;
 
 (use-package vertico
   :init
   (vertico-mode))
+
 
 ;; --- CORFU --- ;;
 
