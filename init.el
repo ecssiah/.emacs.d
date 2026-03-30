@@ -11,6 +11,11 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
+(setq-default truncate-lines t)
+
 (setq hscroll-margin 5)
 (setq hscroll-step 1)
 (setq auto-hscroll-mode t)
@@ -20,8 +25,6 @@
 (setq create-lockfiles nil)
 
 (setq ring-bell-function 'ignore)
-
-(setq-default truncate-lines t)
 
 
 ;; --- CUSTOMIZATION --- ;;
@@ -91,6 +94,11 @@
   (corfu-cycle t))
 
 
+;; --- CONSULT --- ;;
+
+(require 'consult)
+
+
 ;; --- THEME / UI --- ;;
 
 (add-to-list 'default-frame-alist '(width . 120))
@@ -148,6 +156,8 @@
 
 ;; --- KEYBINDINGS --- ;;
 
+(global-set-key (kbd "C-<backspace>") #'fixup-whitespace)
+
 (global-set-key (kbd "C-.") #'completion-at-point)
 
 (global-set-key (kbd "C-f") #'forward-word)
@@ -164,3 +174,6 @@
 (global-set-key (kbd "C-+") #'text-scale-increase)
 (global-set-key (kbd "C-=") #'text-scale-increase)
 (global-set-key (kbd "C--") #'text-scale-decrease)
+
+(define-key global-map (kbd "M-p") #'consult-imenu)
+(define-key global-map (kbd "M-o") #'consult-imenu-multi)
