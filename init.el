@@ -16,6 +16,8 @@
 
 (setq-default truncate-lines t)
 
+(setq comment-style 'plain)
+
 (setq hscroll-margin 5)
 (setq hscroll-step 1)
 (setq auto-hscroll-mode t)
@@ -25,6 +27,8 @@
 (setq create-lockfiles nil)
 
 (setq ring-bell-function 'ignore)
+
+(setq xref-search-program 'ripgrep)
 
 
 ;; --- CUSTOMIZATION --- ;;
@@ -39,11 +43,16 @@
   (interactive))
 
 
-;; -- DIRED-SUBTREE -- ;;
+;; --- DIRED-SUBTREE -- ;;
 
 (with-eval-after-load 'dired
   (require 'dired-subtree)
   (define-key dired-mode-map (kbd "i") #'dired-subtree-toggle))
+
+
+;; --- ORG --- ;;
+
+(add-hook 'org-mode-hook #'visual-line-mode)
 
 
 ;; --- EGLOT --- ;;
@@ -113,13 +122,14 @@
  :weight 'normal)
 
 
-;; --- C STYLE --- ;;
+;; --- C LANGUAGE --- ;;
 
 (c-add-style
  "jsk-cstyle"
  '(
    (c-basic-offset . 4)
    (c-comment-only-line-offset . 0)
+   (c-syntactic-indentation-in-macros . nil)
 
    (c-offsets-alist
     (brace-list-intro . 4)
@@ -152,6 +162,12 @@
  'c++-mode-hook
  (lambda ()
    (c-set-style "jsk-cstyle")))
+
+(add-hook
+ 'c-mode-common-hook
+ (lambda ()
+   (setq-local comment-start "// ")
+   (setq-local comment-end "")))
 
 
 ;; --- KEYBINDINGS --- ;;
