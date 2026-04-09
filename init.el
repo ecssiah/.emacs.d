@@ -30,6 +30,8 @@
 
 (setq xref-search-program 'ripgrep)
 
+(setq compilation-scroll-output 'first-error)
+
 
 ;; --- CUSTOMIZATION --- ;;
 
@@ -42,6 +44,15 @@
 (defun jsk-no-op ()
   (interactive))
 
+;; --- ANSI COLOR --- ;;
+
+(require 'ansi-color)
+
+(add-hook
+ 'compilation-filter-hook
+ (lambda () (ansi-color-apply-on-region compilation-filter-start (point)))
+)
+
 
 ;; --- DIRED-SUBTREE -- ;;
 
@@ -53,6 +64,11 @@
 ;; --- ORG --- ;;
 
 (add-hook 'org-mode-hook #'visual-line-mode)
+
+
+;; --- PYVENV --- ;;
+
+(pyvenv-mode 1)
 
 
 ;; --- EGLOT --- ;;
@@ -168,6 +184,13 @@
  (lambda ()
    (setq-local comment-start "// ")
    (setq-local comment-end "")))
+
+;; --- PYTHON LANGUAGE --- ;;
+
+(add-hook 'python-mode-hook
+  (lambda ()
+    (pyvenv-workon ".venv")
+    (eglot-ensure)))
 
 
 ;; --- KEYBINDINGS --- ;;
