@@ -44,17 +44,6 @@
 (defun justsky-noop ()
   (interactive))
 
-(defun justsky-move-line-up ()
-  (interactive)
-  (transpose-lines 1)
-  (forward-line -2))
-
-(defun justsky-move-line-down ()
-  (interactive)
-  (forward-line 1)
-  (transpose-lines 1)
-  (forward-line -1))
-
 
 ;; --- ANSI COLOR --- ;;
 
@@ -63,7 +52,13 @@
 (add-hook
  'compilation-filter-hook
  (lambda () (ansi-color-apply-on-region compilation-filter-start (point)))
-)
+ )
+
+;; --- MOVE TEXT --- ;;
+
+(require 'move-text)
+
+(move-text-default-bindings)
 
 
 ;; --- DIRED-SUBTREE -- ;;
@@ -228,7 +223,3 @@
 
 (define-key global-map (kbd "M-p") #'consult-imenu)
 (define-key global-map (kbd "M-o") #'consult-imenu-multi)
-
-(global-set-key (kbd "M-<up>") 'justsky-move-line-up)
-(global-set-key (kbd "M-<down>") 'justsky-move-line-down)
-
